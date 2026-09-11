@@ -183,7 +183,7 @@ MIT License - Free to use and modify for personal & educational use!
 
 ### 📞 Questions or Issues?
 
-[Open an issue on GitHub](https://github.com/abhvashu22-ind/NeuroGames/issues) and we'll help!
+[Open an issue on GitHub](https://github.com/abhivashu22-ind/NeuroGames/issues) and we'll help!
 
 ---
 
