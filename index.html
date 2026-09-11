@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 NeuroGames - Cognitive Growth Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars-background"></div>
+    <div id="loadingOverlay" class="loading-overlay" role="status" aria-labelledby="loadingTitle" aria-describedby="loadingHint" aria-live="polite" aria-hidden="false">
+        <div class="loading-card">
+            <div class="loader-orbit" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+            <h2 id="loadingTitle">🚀 Loading NeuroGames</h2>
+            <p id="loadingHint">Preparing a bright new challenge...</p>
+            <div class="loading-bar"><span id="loadingProgress"></span></div>
+            <strong id="loadingPercent">0%</strong>
+        </div>
+    </div>
+    <div id="toastStack" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
+    <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
+    <div id="transitionStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <div class="app-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Holistic cognitive growth for ages 7-12</p>
+                <h1>🧠 NeuroGames</h1>
+            </div>
+            <div class="topbar-right">
+                <div id="activeProfileBadge" class="profile-badge">
+                    <span id="activeProfileAvatar" class="profile-avatar">🙂</span>
+                    <span id="activeProfileLabel">No profile selected</span>
+                </div>
+                <button id="chatToggleBtn" class="btn btn-secondary">🤖 Brainy</button>
+            </div>
+        </header>
+
+        <nav id="mainNav" class="main-nav hidden">
+            <button class="nav-btn" data-screen="homeDashboard">Home</button>
+            <button class="nav-btn" data-screen="gameSelection">Games</button>
+            <button class="nav-btn" data-screen="behaviorMentor">Behavior Mentor</button>
+            <button class="nav-btn" data-screen="resultsScreen">Results</button>
+            <button class="nav-btn" data-screen="parentDashboard">Parent Dashboard</button>
+            <button class="nav-btn" data-screen="achievementGallery">Achievements</button>
+            <button class="nav-btn" data-screen="settingsScreen">Settings</button>
+        </nav>
+
+        <main>
+            <section id="loginProfile" class="screen active">
+                <h2>👋 Welcome! Choose a Profile</h2>
+                <div class="card hero-card">
+                    <div class="section-kicker">Create a playful identity</div>
+                    <p class="section-copy">Pick a cartoon avatar, favorite glow color, and fun accessory so every child sees their personality across the platform.</p>
+                    <div class="form-row">
+                        <input id="childNameInput" type="text" placeholder="Child name" maxlength="30">
+                        <input id="childAgeInput" type="number" min="7" max="12" placeholder="Age 7-12">
+                        <button id="createProfileBtn" class="btn btn-primary">Create Profile</button>
+                    </div>
+                    <div class="avatar-builder">
+                        <div>
+                            <h3>Choose Avatar</h3>
+                            <div id="avatarOptions" class="avatar-grid"></div>
+                        </div>
+                        <div class="avatar-preview-card">
+                            <h3>Customize</h3>
+                            <div id="avatarPreview" class="avatar-preview avatar-color-sky" aria-live="polite">
+                                <span id="avatarPreviewBase" class="avatar-base">🦊</span>
+                                <span id="avatarPreviewAccessory" class="avatar-accessory">✨</span>
+                            </div>
+                            <div class="form-row compact-row">
+                                <label>Glow
+                                    <select id="avatarColorSelect">
+                                        <option value="sky">Sky Blue</option>
+                                        <option value="mint">Mint Green</option>
+                                        <option value="sunset">Sunset Orange</option>
+                                        <option value="berry">Berry Pink</option>
+                                        <option value="violet">Violet Pop</option>
+                                        <option value="gold">Golden Shine</option>
+                                    </select>
+                                </label>
+                                <label>Accessory
+                                    <select id="avatarAccessorySelect">
+                                        <option value="✨">Sparkles</option>
+                                        <option value="🎧">Headphones</option>
+                                        <option value="🧢">Cap</option>
+                                        <option value="👓">Glasses</option>
+                                        <option value="🌟">Star</option>
+                                        <option value="🚀">Rocket</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profileList" class="pill-list"></div>
+                </div>
+            </section>
+
+            <section id="homeDashboard" class="screen">
+                <h2>📊 Smart Dashboard</h2>
+                <div id="dashboardHero" class="card dashboard-hero"></div>
+                <div class="grid metrics-grid" id="metricsGrid"></div>
+                <div class="grid two-col">
+                    <div class="card">
+                        <h3>🎯 Performance Analytics</h3>
+                        <ul id="performanceList" class="stat-list"></ul>
+                    </div>
+                    <div class="card">
+                        <h3>🧭 Interest Mapping</h3>
+                        <div id="interestMapping"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>🏅 Recent Achievements</h3>
+                    <div id="recentAchievements" class="badge-grid"></div>
+                </div>
+            </section>
+
+            <section id="gameSelection" class="screen">
+                <h2>🎮 Game Selection</h2>
+                <div class="form-row">
+                    <label>Difficulty
+                        <select id="difficultySelect">
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="grid game-grid" id="gameCards"></div>
+            </section>
+
+            <section id="gamePlay" class="screen">
+                <div class="card">
+                    <div class="play-header">
+                        <h2 id="playTitle">Game Play</h2>
+                        <div id="playMeta"></div>
+                    </div>
+                    <div id="gameArea"></div>
+                </div>
+            </section>
+
+            <section id="resultsScreen" class="screen">
+                <h2>🏁 Session Results</h2>
+                <div class="card">
+                    <div id="sessionSummary"></div>
+                    <button id="playAgainBtn" class="btn btn-primary">Play Another Game</button>
+                </div>
+            </section>
+
+            <section id="parentDashboard" class="screen">
+                <h2>👨‍👩‍👧 Parent/Educator Dashboard</h2>
+                <div class="grid two-col">
+                    <div class="card"><h3>Weekly Growth</h3><div id="weeklyGrowth"></div></div>
+                    <div class="card"><h3>Monthly Growth</h3><div id="monthlyGrowth"></div></div>
+                </div>
+                <div class="grid two-col">
+                    <div class="card"><h3>Game Performance Breakdown</h3><div id="gameBreakdown"></div></div>
+                    <div class="card"><h3>Time & Behavior Insights</h3><div id="timeInsights"></div></div>
+                </div>
+            </section>
+
+            <section id="behaviorMentor" class="screen">
+                <h2>💪 Behavior Mentor</h2>
+                <div class="card">
+                    <h3>Daily Sports & Fitness Challenges</h3>
+                    <div id="fitnessChallenges" class="grid four-col"></div>
+                </div>
+                <div class="card">
+                    <h3>Healthy Habit Tips</h3>
+                    <ul id="habitTips"></ul>
+                </div>
+            </section>
+
+            <section id="achievementGallery" class="screen">
+                <h2>🏆 Achievement Gallery</h2>
+                <div id="achievementGrid" class="badge-grid"></div>
+            </section>
+
+            <section id="settingsScreen" class="screen">
+                <h2>⚙️ Settings</h2>
+                <div class="card">
+                    <label><input id="notifyToggle" type="checkbox"> Notifications enabled</label>
+                    <label><input id="chatbotToggle" type="checkbox"> Brainy Chatbox enabled</label>
+                    <label><input id="parentControlToggle" type="checkbox"> Parental controls enabled</label>
+                    <label><input id="soundToggle" type="checkbox"> Sound effects enabled</label>
+                    <label><input id="musicToggle" type="checkbox"> Background music enabled</label>
+                    <button id="saveSettingsBtn" class="btn btn-primary">Save Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <aside id="brainyPanel" class="brainy-panel hidden" role="dialog" aria-modal="false" aria-labelledby="brainyTitle">
+        <div class="brainy-header">
+            <h3 id="brainyTitle">🤖 Brainy Chatbox</h3>
+            <button id="closeBrainyBtn" class="btn btn-secondary">Close</button>
+        </div>
+        <div id="brainyMessages" class="brainy-messages" role="status" aria-live="polite" aria-atomic="false"></div>
+        <div class="form-row">
+            <input id="brainyInput" type="text" placeholder="Ask Brainy for a hint..." aria-label="Brainy chat input">
+            <button id="brainySendBtn" class="btn btn-primary">Send</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
