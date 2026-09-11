@@ -189,4 +189,4 @@ MIT License - Free to use and modify for personal & educational use!
 
 **Made with ❤️ for Smart Kids Everywhere**
 
-**Play Now:** https://devsatish05.github.io/NeuroGames/
+**Play Now:** https://abhivashu22-ind.github.io/NeuroGames/
