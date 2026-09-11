@@ -4,7 +4,7 @@ A fun, interactive brain teaser quiz game for kids! Built with **HTML, CSS, and 
 
 ## 🎮 Play Now!
 
-**[👉 CLICK HERE TO PLAY 👈](https://abhivashu22.github.io/NeuroGames/)**
+**[👉 CLICK HERE TO PLAY 👈](https://abhivashu22-ind.github.io/NeuroGames/)**
 
 Just open the link in your browser and start playing! No installation needed! 🚀
 
@@ -183,7 +183,7 @@ MIT License - Free to use and modify for personal & educational use!
 
 ### 📞 Questions or Issues?
 
-[Open an issue on GitHub](https://github.com/abhvashu22/NeuroGames/issues) and we'll help!
+[Open an issue on GitHub](https://github.com/abhvashu22-ind/NeuroGames/issues) and we'll help!
 
 ---
 
